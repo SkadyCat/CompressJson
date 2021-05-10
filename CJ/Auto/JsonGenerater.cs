@@ -73,11 +73,13 @@ namespace CJ.Auto
 					{
 						Queue<string> rq = new Queue<string>();
 						FileData data = new FileData();
-						data.path = pathMaps[key];
-						data.name = k.Replace("message", " ").Trim();
+						data.path = pathMaps[key]+"\\Model";
+                        string hd = k.Replace("message", " ").Trim();
+
+                        data.name = hd + "Model";
 						string head = k.Trim();
 						string[] headItems = head.Split(' ');
-						rq.Enqueue("public class " + headItems[1].Trim() + ":IMsg\n{\n");
+						rq.Enqueue("public class " + data.name + ":IMsg\n{\n");
 						while (qq.Count != 0)
 						{
 							line++;
@@ -114,7 +116,25 @@ namespace CJ.Auto
 						rq.Enqueue("}\n");
 						data.content = rq;
 						ls.Add(data);
-					}
+                        if (!hd.Contains("Ret"))
+                            continue;
+                        //controller
+                        rq = new Queue<string>();
+                        data = new FileData();
+                        data.path = pathMaps[key] + "\\Controller";
+                        data.name = k.Replace("message", " ").Trim() + "Controller";
+                        rq.Enqueue("public class "+data.name+" : IController\n{\n");
+                        rq.Enqueue("        "+ hd + "Model" + " model;\n");
+                        rq.Enqueue("        public void setData(IMsg msg)\n");
+                        rq.Enqueue("        {\n");
+                        rq.Enqueue("            model = ("+ hd+"Model" + ")msg;\n");
+                        rq.Enqueue("        }\n");
+                        rq.Enqueue("        public void doing()\n");
+                        rq.Enqueue("        {\n");
+                        rq.Enqueue("        }\n");
+                        data.content = rq;
+                        ls.Add(data);
+                    }
 				}
 			}
 			return ls;
@@ -127,9 +147,20 @@ namespace CJ.Auto
 			List<FileData> ls = toQueue();
 
 			foreach (var v in ls) {
+                
+                if (Directory.Exists(v.path) == false)//如果不存在就创建file文件夹
+                {
+                    Directory.CreateDirectory(v.path);
+                }
 
-				String FilePath2 = v.path + "\\" + v.name + ".cs";
-				System.IO.StreamWriter file2 = new System.IO.StreamWriter(FilePath2, false);
+                
+                String FilePath2 = v.path + "\\" + v.name + ".cs";
+
+                if (v.name.Contains("Controller") && File.Exists(FilePath2))
+                {
+                    continue;
+                }
+                System.IO.StreamWriter file2 = new System.IO.StreamWriter(FilePath2, false);
 				//保存数据到文件
 				file2.Write("using CJ.Auto;\n");
 				file2.Write("using System;\n");

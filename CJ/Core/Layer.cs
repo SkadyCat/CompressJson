@@ -133,12 +133,25 @@ namespace CJ.Core
 
 		float byteToFloat(byte[] data)
 		{
-			return BitConverter.ToSingle(data, 0);
+            byte[] bf = data;
+            byte[] b2 = new byte[4];
+            b2[3] = bf[0];
+            b2[2] = bf[1];
+            b2[1] = bf[2];
+            b2[0] = bf[3];
+            return BitConverter.ToSingle(b2, 0);
 		}
 
 		byte[] float2Byte(float v)
 		{
-			return BitConverter.GetBytes(v);
+            byte[] bf = BitConverter.GetBytes(v);
+
+            byte[] b2 = new byte[4];
+            b2[3] = bf[0];
+            b2[2] = bf[1];
+            b2[1] = bf[2];
+            b2[0] = bf[3];
+            return b2;
 		}
 		void clear()
 		{

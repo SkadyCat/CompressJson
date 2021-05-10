@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CJ.Auto
 {
-    public class LoginRetModel : IMsg
+    public class LoginRetModel
     {
 
         public string password;

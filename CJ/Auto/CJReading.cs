@@ -20,15 +20,11 @@ namespace CJ.Auto
             controllerMaps = new Dictionary<string, Type>();
             List<Type> list = ReflectionTool.reflectionByList(typeof(IMsg));
             foreach (Type tp in list) {
-
-                Console.WriteLine(tp.Name);
                 maps.Add(tp.Name, tp);
             }
             list = ReflectionTool.reflectionByList(typeof(IController));
             foreach (Type tp in list)
             {
-
-                Console.WriteLine(tp.Name);
                 controllerMaps.Add(tp.Name, tp);
             }
         }
@@ -48,20 +44,6 @@ namespace CJ.Auto
             method.Invoke(o, new object[] { d2 });
             method = type.GetMethod("doing", BindingFlags.Instance | BindingFlags.Public);
             method.Invoke(o,null);
-            //IController controller = new LoginRetController();
-
-
-            //Console.WriteLine(ret.account);
-
-        }
-
-        static void Main(string[] args) {
-
-            Console.WriteLine("hello world");
-        }
-        public void send(IMsg msg) { 
-            
-            
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CJ.Auto
 {
-    class LoginRet : IMsg
+    class LoginRet
     {
         public string password;
         public string account;

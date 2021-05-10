@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CJ.Auto;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +25,15 @@ namespace CJ.Core
 
 			return Instance.Json2Buffer(type, json);
 		}
-		public static string[] toJson(byte[] buf)
+
+        public static byte[] toBuffer(IMsg msg)
+        {
+            string js = JsonConvert.SerializeObject(msg);
+            return Instance.Json2Buffer(msg.GetType().Name.Replace("Model",""), js);
+        }
+        public static string[] toJson(byte[] buf)
 		{
 			return Instance.Buffer2Json(buf);
 		}
-	}
+    }
 }

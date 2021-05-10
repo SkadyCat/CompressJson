@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>CJC</RootNamespace>
     <AssemblyName>CJC</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,17 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auto\LoginRet.cs" />
-    <Compile Include="Auto\Test10.cs" />
-    <Compile Include="Auto\Test11.cs" />
-    <Compile Include="Auto\Test2.cs" />
-    <Compile Include="Auto\Test3.cs" />
-    <Compile Include="Auto\Test4.cs" />
-    <Compile Include="Auto\Test5.cs" />
-    <Compile Include="Auto\Test6.cs" />
-    <Compile Include="Auto\Test7.cs" />
-    <Compile Include="Auto\Test8.cs" />
-    <Compile Include="Auto\Test9.cs" />
+    <Compile Include="Auto\Controller\LoginRetController.cs" />
+    <Compile Include="Auto\Model\LoginReqModel.cs" />
+    <Compile Include="Auto\Model\LoginRetModel.cs" />
     <Compile Include="DynamicNode.cs" />
     <Compile Include="Layer.cs" />
     <Compile Include="MsgManager.cs" />

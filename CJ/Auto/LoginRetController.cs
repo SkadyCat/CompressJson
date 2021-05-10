@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CJ.Auto
 {
-    public class LoginRetController : IController
+    public class LoginRetController 
     {
         LoginRetModel model;
         public void setData(IMsg msg)
