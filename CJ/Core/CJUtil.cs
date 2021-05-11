@@ -11,14 +11,17 @@ namespace CJ.Core
 {
    public class CJUtil
     {
+
 		private static MsgManager Instance;
-		public static void init()
+		public static int init()
 		{
 			Instance = new MsgManager();
+
+            return 30;
 		}
-		public static void load(string path)
+		public static void load(string data)
 		{
-			Instance.process(path);
+			Instance.process(data);
 		}
 
 		public static byte[] toBuffer(string type,string json) {

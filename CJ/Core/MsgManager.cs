@@ -15,10 +15,14 @@ namespace CJ.Core
 		string preProcess;
 		Dictionary<string, SerializeNode> headMap;
 		Dictionary<string, SerializeNode> serialsNodes;
-		public MsgManager() {
+        public Dictionary<string, int> idMap;
+        public Dictionary<int, string> id_sMap;
+        public MsgManager() {
 			headMap = new Dictionary<string, SerializeNode>();
 			serialsNodes = new Dictionary<string, SerializeNode>();
-		}
+            idMap = new Dictionary<string, int>();
+            id_sMap = new Dictionary<int, string>();
+        }
 		bool contains(string origin, string key)
 		{
 			return origin.Contains(key);
@@ -27,25 +31,23 @@ namespace CJ.Core
 		{
 			return s.Split(delimiter);
 		}
-		Queue<string> load(string path)
+		Queue<string> load(string data)
 		{
-			Queue<string> q = new Queue<string>();
-			using (StreamReader sr = new StreamReader(path))
-			{
-				string line = "";
-				// 从文件读取并显示行，直到文件的末尾 
-				while ((line = sr.ReadLine()) != null)
-				{
-					q.Enqueue(line);
-				}
-			}
-			return q;
+            Queue<string> q = new Queue<string>();
+
+            string[] arr = data.Split('\n');
+            foreach (string k in arr)
+            {
+                q.Enqueue(k);
+            }
+
+            return q;
 		}
 
-		public void process(string path)
+		public void process(string data)
 		{
 
-			Queue<string> qq = load(path);
+			Queue<string> qq = load(data);
 			int line = 0;
 			bool isOpen = false;
 			while (qq.Count != 0)
@@ -63,8 +65,9 @@ namespace CJ.Core
 					string head = k.Trim();
 					string[] headItems = split(head, ' ');
 					headMap.Add(headItems[1], new SerializeNode(headItems[0], headItems[1], null));
-
-					SerializeNode cur = headMap[headItems[1]];
+                    idMap.Add(headItems[1], idMap.Count);
+                    id_sMap.Add(id_sMap.Count, headItems[1]);
+                    SerializeNode cur = headMap[headItems[1]];
 					cur.isDynamic = false;
 					while (qq.Count != 0)
 					{
@@ -138,6 +141,10 @@ namespace CJ.Core
 			{
 				data = val.ToString();
 			}
+            if (type == "long") {
+
+                data = long.Parse(val.ToLower());
+            }
 			return data;
 		}
 		
@@ -168,7 +175,7 @@ namespace CJ.Core
 						cur = cur.next;
 						continue;
 					}
-					if (cur.type == "int" || cur.type == "float" || cur.type == "string")
+					if (cur.type == "int" || cur.type == "float" || cur.type == "string"||cur.type == "long")
 					{
 						//JObject jo = .ToObject<JObject>();
 
@@ -199,7 +206,7 @@ namespace CJ.Core
 						string[] typeClass = split(cur.type, ':');
 						string tp = typeClass[1].Trim();
 						int len = (int)cur.getVal();
-						if (tp == "int" || tp == "float" || tp == "string")
+						if (tp == "int" || tp == "float" || tp == "string" || tp == "long")
 						{
 							for (int i = 0; i < len; i++)
 							{
@@ -265,7 +272,8 @@ namespace CJ.Core
 			posMap.Add("int", -1);
 			posMap.Add("float", -1);
 			posMap.Add("string", -1);
-			Queue<DynamicNode> dq = new Queue<DynamicNode>();
+            posMap.Add("long", -1);
+            Queue<DynamicNode> dq = new Queue<DynamicNode>();
 
 
 			while (dd != null)
@@ -287,8 +295,12 @@ namespace CJ.Core
 					posMap[dn.type]++;
 					dn.sval = (string)dd.getVal();
 				}
-
-				if (dn.type == "repeated")
+                if (dn.type == "long")
+                {
+                    posMap[dn.type]++;
+                    dn.lval = (long)dd.getVal();
+                }
+                if (dn.type == "repeated")
 				{
 					posMap["int"]++;
 					dn.ival = (int)dd.getVal();
@@ -303,11 +315,11 @@ namespace CJ.Core
 		{
 
 			Dictionary<string, int> maps = new Dictionary<string, int>();
-			maps.Add("int", -1);
+			maps.Add("int", 0);
 			maps.Add("float", -1);
 			maps.Add("string", 0);
-
-			string protoName = layer.SArr[0];
+            maps.Add("long", -1);
+            string protoName = layer.SArr[0];
 			SerializeNode head = new SerializeNode("head", "msg", 0);
 			head.copy(headMap[protoName].next);
 			SerializeNode growData = new SerializeNode("string", "head", layer.SArr[0]);
@@ -357,7 +369,7 @@ namespace CJ.Core
 					{
 
 						string preType = thead.type;
-						if (preType == "int" || preType == "float")
+						if (preType == "int" || preType == "float" || preType == "long")
 						{
 							ss += thead.valToString();
 							thead = thead.next;
@@ -367,6 +379,7 @@ namespace CJ.Core
 							ss += "\"" + thead.valToString() + "\"";
 							thead = thead.next;
 						}
+    
 						if (headMap.ContainsKey(preType))
 						{
 							//head = head.next;
@@ -391,7 +404,12 @@ namespace CJ.Core
 
 					ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
 				}
-				if (thead.type == "float")
+                if (thead.type == "long")
+                {
+
+                    ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
+                }
+                if (thead.type == "float")
 				{
 					ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
 				}
@@ -468,7 +486,14 @@ namespace CJ.Core
 						head = head.next;
 						continue;
 					}
-					if (head.type == "float")
+                    if (head.type == "long")
+                    {
+                        maps[head.type]++;
+                        growData = growData.grow(head.type, head.key, layer.LArr[maps[head.type]]);
+                        head = head.next;
+                        continue;
+                    }
+                    if (head.type == "float")
 					{
 						maps[head.type]++;
 						growData = growData.grow(head.type, head.key, layer.FArr[maps[head.type]]);
@@ -552,7 +577,7 @@ namespace CJ.Core
 		{
 			string[] str = new string[2];
 			Layer la = new Layer();
-			la.fromBuffer(buf);
+			la.fromBuffer(buf,this);
 			str[0] = deSerialize(la);
 			str[1] = la.SArr[0];
 			return str;
@@ -567,8 +592,10 @@ namespace CJ.Core
 		public Layer serializeToLayer(string msg, string jdata)
 		{
 			preProcess = jdata;
-			Layer layer = new Layer();
-			Queue<DynamicNode> qq = serialize(msg, jdata);
+			Layer layer = new Layer(msg,this);
+            layer.SArr.Clear();
+
+            Queue<DynamicNode> qq = serialize(msg, jdata);
 			while (qq.Count != 0)
 			{
 				if (qq.Peek().type == "int")
@@ -583,7 +610,11 @@ namespace CJ.Core
 				{
 					layer.SArr.Add(qq.Peek().sval);
 				}
-				qq.Dequeue();
+                if (qq.Peek().type == "long")
+                {
+                    layer.LArr.Add(qq.Peek().lval);
+                }
+                qq.Dequeue();
 			}
 			return layer;
 		}

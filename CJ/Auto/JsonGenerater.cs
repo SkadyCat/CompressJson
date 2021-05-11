@@ -96,18 +96,27 @@ namespace CJ.Auto
 							}
 							if (msgItem[0] == "int" || msgItem[0] == "float"|| msgItem[0] == "string") {
 								rq.Enqueue("	public " + msgItem[0] + " " + msgItem[1] + ";\n	");
-							}
-							if (msgItem[0] == "repeated")
-							{
-								if (msgItem.Length < 3)
-								{
-									string val = "error: please confirm the proto txt file in line " + line + "\n";
-									return null;
-								}
-								rq.Enqueue("public " + msgItem[1] + "[] " + msgItem[2] + ";\n");
-
-							}
-						}
+                                continue;
+                            }
+                            if (msgItem[0] == "repeated")
+                            {
+                                if (msgItem.Length < 3)
+                                {
+                                    string val = "error: please confirm the proto txt file in line " + line + "\n";
+                                    return null;
+                                }
+                                if (msgItem[1] == "int" || msgItem[1] == "float" || msgItem[1] == "string")
+                                {
+                                    rq.Enqueue("	public " + msgItem[1] + "[] " + msgItem[2] + ";\n	");
+                                }
+                                else
+                                {
+                                    rq.Enqueue("public " + msgItem[1] + "Model[] " + msgItem[2] + ";\n");
+                                }
+                                continue;
+                            }
+                            rq.Enqueue("	public " + msgItem[0] + "Model " + msgItem[1] + ";\n	");
+                        }
 						rq.Enqueue("\n");
 						rq.Enqueue("public "+data.name+" parseJson<"+ data.name + ">(JObject jo)\n");
 						rq.Enqueue("{\n");

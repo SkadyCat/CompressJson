@@ -23,6 +23,7 @@ namespace CJ.Core
 		public int ival;
 		public string sval;
 		public float fval;
+        public long lval;
 		public int getIndex()
 		{
 			if (type == "repeated")

@@ -25,19 +25,16 @@ namespace CJ_CSHARP
 		{
 			return s.Split(delimiter);
 		}
-		Queue<string> load(string path)
+		Queue<string> load(string data)
 		{
 			Queue<string> q = new Queue<string>();
-			using (StreamReader sr = new StreamReader(path))
-			{
-				string line = "";
-				// 从文件读取并显示行，直到文件的末尾 
-				while ((line = sr.ReadLine()) != null)
-				{
-					q.Enqueue(line);
-				}
-			}
-			return q;
+
+            string[] arr = data.Split('\n');
+            foreach (string k in arr) {
+                q.Enqueue(k);
+            }
+            
+            return q;
 		}
 
 		public void process(string path)
@@ -165,7 +162,7 @@ namespace CJ_CSHARP
 						cur = cur.next;
 						continue;
 					}
-					if (cur.type == "int" || cur.type == "float" || cur.type == "string")
+					if (cur.type == "int" || cur.type == "float" || cur.type == "string"||cur.type == "long")
 					{
 						//JObject jo = .ToObject<JObject>();
 
@@ -479,7 +476,14 @@ namespace CJ_CSHARP
 						head = head.next;
 						continue;
 					}
-					if (head.type == "end")
+                    if (head.type == "long")
+                    {
+                        maps[head.type]++;
+                        growData = growData.grow(head.type, head.key, layer.SArr[maps[head.type]]);
+                        head = head.next;
+                        continue;
+                    }
+                    if (head.type == "end")
 					{
 
 						if (lastNodes != null)
