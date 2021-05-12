@@ -1,68 +1,92 @@
-message Test2
+message BagCode
+	int BAG_SUCCESS
+    int BAG_FAIL
+end
+
+message BagGridInfo
+    int item_id
+    int grid_id
+    int grid_num
+    long cd
+end
+
+message BagPullRequest
 	int id
-	repeated string names
+end    
+
+message BagPullRet
+    int code
+	repeated BagGridInfo grid_info_list
+    long open_timestamp
+end
+message BagDragRequest
+    int origin_id
+    int dst_id
 end
 
-message Test3
-	int id
-	repeated int grid_id
+message BagDragRet
+    int code
+    BagGridInfo origin
+    BagGridInfo dst
+end
+message BagPackUpRequest
+    repeated int from
+    repeated int to
 end
 
-message Test4
-	float x
-	float y
-	float z
+message BagPackUpRet
+    int code
+    repeated BagGridInfo to
+end
+message BagUseRequest
+    int origin_id
+end
+message BagUseRet
+    int code
+    repeated BagGridInfo origin
+end
+message BagAddRequest
+    int origin_id 
+    int item_id
+    int num
 end
 
-message Test5
-	repeated Test4 pos_arr
+
+message BagAddRet
+    int code
+    repeated BagGridInfo origin
 end
 
-message Test6
-	int id
-	Test4 pos
+message BagDiscardRequest
+    int origin_id
 end
 
 
-message Test7
-	int id
-	Test4 pos
-	Test4 pos2
+message BagDiscardRet
+    int code
+    BagGridInfo origin
 end
 
-message Test8
-	int id
-	repeated Test4 pos
+message BagSplitRequest
+    int origin_id
+    int origin_num
+    int dst_id
+    int dst_num 
 end
 
-message LoginRet
-	string password
-	string account
+
+message BagSplitRet
+    int code
+    BagGridInfo origin
+    BagGridInfo dst
 end
 
-message Test9
-	repeated int arr
+message BagExtendRequest
+    int character_id
+    int extend_num
 end
 
-message Test10
-	repeated string arr
-end
-
-message Test11
-	repeated float arr
-end
-
-message Test12
-	long l1
-	long l2
-	repeated long l3
-end
-
-message Test13
-	long l1
-	long l2
-end
-message Test14
-	Test13 a1
-	repeated Test13 a2
+message BagExtendRet
+    int code
+    int extend_num
 end

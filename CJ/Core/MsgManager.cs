@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace CJ.Core
@@ -15,15 +16,29 @@ namespace CJ.Core
 		string preProcess;
 		Dictionary<string, SerializeNode> headMap;
 		Dictionary<string, SerializeNode> serialsNodes;
-        public Dictionary<string, int> idMap;
+        public Dictionary<string, string> idMap;
         public Dictionary<int, string> id_sMap;
         public MsgManager() {
 			headMap = new Dictionary<string, SerializeNode>();
 			serialsNodes = new Dictionary<string, SerializeNode>();
-            idMap = new Dictionary<string, int>();
-            id_sMap = new Dictionary<int, string>();
+            idMap = new Dictionary<string, string>();
+            //id_sMap = new Dictionary<int, string>();
         }
-		bool contains(string origin, string key)
+        public static string GetMD5(string myString)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            //byte[] fromData = System.Text.Encoding.Unicode.GetBytes(myString);
+            byte[] fromData = System.Text.Encoding.UTF8.GetBytes(myString);//
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x");
+            }
+            return byte2String;
+        }
+        bool contains(string origin, string key)
 		{
 			return origin.Contains(key);
 		}
@@ -65,8 +80,8 @@ namespace CJ.Core
 					string head = k.Trim();
 					string[] headItems = split(head, ' ');
 					headMap.Add(headItems[1], new SerializeNode(headItems[0], headItems[1], null));
-                    idMap.Add(headItems[1], idMap.Count);
-                    id_sMap.Add(id_sMap.Count, headItems[1]);
+                    
+                    idMap.Add(GetMD5(headItems[1]).Substring(0,10), headItems[1]);
                     SerializeNode cur = headMap[headItems[1]];
 					cur.isDynamic = false;
 					while (qq.Count != 0)
@@ -395,11 +410,21 @@ namespace CJ.Core
 					{
 						ss += ",";
 					}
-					thead = thead.next;
+					thead = thead.next;//数组的结束arr_end
+
+                    if (thead == null) {
+                        continue;
+                    }
+                    thead = thead.next;//数组对应的对象obj_end结束
+                    if (thead.key != "end") {
+                        ss += ",";
+                    }
 					continue;
 
 				}
-				if (thead.type == "int")
+                
+
+                if (thead.type == "int")
 				{
 
 					ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
@@ -518,7 +543,7 @@ namespace CJ.Core
 						{
 							growData = growData.grow("string", "object_end", head.key);
 							head.next = lastNodes;
-							lastNodes = lastNodes.next;
+							lastNodes = null;
 							head = head.next;
 							continue;
 						}

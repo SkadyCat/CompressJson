@@ -22,7 +22,7 @@ namespace CJ.Core
             SArr = new List<string>();
             LArr = new List<long>();
             SArr.Add(type);
-            IArr.Add(manager.idMap[type]);
+            IArr.Add(0);
         }
         public Layer() {
             IArr = new List<int>();
@@ -225,13 +225,17 @@ namespace CJ.Core
             }
             return lb.ToArray();
         }
+
+
         public byte[] toBuffer()
         {
             Queue<byte> q = new Queue<byte>();
 
+            
             //类型信息
-            setQueue(q, int2bytes(IArr[0]));
-
+            //setQueue(q, int2bytes(IArr[0]));
+            
+            setQueue(q, string2Byte(SArr[0]));
             List<byte> iarrbytes = new List<byte>();
             List<byte> farrbytes = new List<byte>();
             List<byte> larrbytes = new List<byte>();
@@ -322,14 +326,19 @@ namespace CJ.Core
         public Layer fromBuffer(byte[] buff,MsgManager manager)
         {
             Queue<byte> q = new Queue<byte>();
-            for (int i = 0; i < buff.Length; i++) {
-                q.Enqueue(buff[i]);
+            foreach (var k in buff) {
+                q.Enqueue(k);
             }
-            byte[] tbuf = extractFromQueue(q);
-            int type = bytesToInt(tbuf);
-            IArr.Add(type);
-            SArr.Add(manager.id_sMap[type]);
-
+            int slen = bytesToInt(extractFromQueue(q));
+            
+            IArr.Add(0);
+            string tt = "";
+            for (int i = 0; i < slen; i++) {
+                tt += (char)q.Dequeue();
+            }
+            SArr.Add(tt);
+            byte[] tbuf = null;
+            int type = 0;
             tbuf = extractFromQueue(q);
             type = bytesToInt(tbuf);
             int iarrLen = type;
