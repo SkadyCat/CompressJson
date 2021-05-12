@@ -6,6 +6,7 @@ its a json compress proto
   1. 比json更小的数据量
   2. 内核很小，可以嵌入到任意c#，c++应用
   3. 自动化脚本，一键MVC
+  4. 同时支持c++(cmake)支持windows平台和linux平台，c# 支持unity(移动平台和Windows平台)
   
 ## c# Demo 
 ```
@@ -40,3 +41,7 @@ its a json compress proto
             }
         }
 ```
+
+## c++ demo
+因为存在一些bug，目前正在修复，敬请期待
+
