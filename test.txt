@@ -1,0 +1,68 @@
+message Test2
+	int id
+	repeated string names
+end
+
+message Test3
+	int id
+	repeated int grid_id
+end
+
+message Test4
+	float x
+	float y
+	float z
+end
+
+message Test5
+	repeated Test4 pos_arr
+end
+
+message Test6
+	int id
+	Test4 pos
+end
+
+
+message Test7
+	int id
+	Test4 pos
+	Test4 pos2
+end
+
+message Test8
+	int id
+	repeated Test4 pos
+end
+
+message LoginRet
+	string password
+	string account
+end
+
+message Test9
+	repeated int arr
+end
+
+message Test10
+	repeated string arr
+end
+
+message Test11
+	repeated float arr
+end
+
+message Test12
+	long l1
+	long l2
+	repeated long l3
+end
+
+message Test13
+	long l1
+	long l2
+end
+message Test14
+	Test13 a1
+	repeated Test13 a2
+end
