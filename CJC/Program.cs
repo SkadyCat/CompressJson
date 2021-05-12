@@ -21,6 +21,7 @@ namespace CJ_CSHARP
         {
             while (true)
             {
+                //注意文件路径 可能直接运行不通过
                 StreamReader sr = new StreamReader("test.txt");
                 MsgManager manager = new MsgManager();
                 manager.process(sr.ReadToEnd());
@@ -37,6 +38,6 @@ namespace CJ_CSHARP
                 test(manager, "Test12", "{\"l1\":33333333333333,\"l2\":44444444444444444,\"l3\":[22222222222222222,444444444444444,555555555555555555]}");
                 test(manager, "Test14", "{\"a1\":{\"l1\":3333333333333333,\"l2\":44444444444444444},\"a2\":[{\"l1\":33333333353333333,\"l2\":444424444444444444},{\"l1\":33333333333331333,\"l2\":444444414444444444},{\"l1\":33332333333333333,\"l2\":44444444444444444}]}");
                 Thread.Sleep(1);
-            }
-    }
+           }
+    
 }
