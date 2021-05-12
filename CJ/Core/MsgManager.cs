@@ -455,6 +455,10 @@ namespace CJ.Core
 				{
 					ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
 				}
+				if (thead.type == "long")
+				{
+					ss += "\"" + thead.key + "\"" + ":" + thead.valToString();
+				}
 				if (thead.type == "string")
 				{
 					ss += "\"" + thead.key + "\"" + ":" + "\"" + thead.valToString() + "\"";
