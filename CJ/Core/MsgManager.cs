@@ -547,6 +547,12 @@ namespace CJ.Core
 							growData = growData.grow("float", "", layer.FArr[maps["float"]]);
 							continue;
 						}
+						if (type == "long")
+						{
+							maps["long"]++;
+							growData = growData.grow("long", "", layer.LArr[maps["long"]]);
+							continue;
+						}
 						if (type == "string")
 						{
 							maps["string"]++;
