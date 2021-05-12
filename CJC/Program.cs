@@ -11,11 +11,12 @@ namespace CJ_CSHARP
     class Program
     {
 
-        static void test(MsgManager manager,string type, string json) {
+        static void test(MsgManager manager, string type, string json)
+        {
             JObject data = JsonConvert.DeserializeObject<JObject>(json);
             byte[] bf = manager.Json2Buffer(type, json);
             string[] vals = manager.Buffer2Json(bf);
-            Console.WriteLine(vals[0]+":"+ vals[1]+":"+(vals[0] == json));
+            Console.WriteLine(vals[0] + ":" + vals[1] + ":" + (vals[0] == json));
         }
         static void Main(string[] args)
         {
@@ -38,6 +39,8 @@ namespace CJ_CSHARP
                 test(manager, "Test12", "{\"l1\":33333333333333,\"l2\":44444444444444444,\"l3\":[22222222222222222,444444444444444,555555555555555555]}");
                 test(manager, "Test14", "{\"a1\":{\"l1\":3333333333333333,\"l2\":44444444444444444},\"a2\":[{\"l1\":33333333353333333,\"l2\":444424444444444444},{\"l1\":33333333333331333,\"l2\":444444414444444444},{\"l1\":33332333333333333,\"l2\":44444444444444444}]}");
                 Thread.Sleep(1);
-           }
+            }
+        }
+    }
     
 }

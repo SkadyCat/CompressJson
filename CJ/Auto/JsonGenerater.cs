@@ -94,7 +94,7 @@ namespace CJ.Auto
 							{
 								break;
 							}
-							if (msgItem[0] == "int" || msgItem[0] == "float"|| msgItem[0] == "string") {
+							if (msgItem[0] == "int" || msgItem[0] == "float"|| msgItem[0] == "string" ||msgItem[0] == "long") {
 								rq.Enqueue("	public " + msgItem[0] + " " + msgItem[1] + ";\n	");
                                 continue;
                             }
@@ -105,7 +105,7 @@ namespace CJ.Auto
                                     string val = "error: please confirm the proto txt file in line " + line + "\n";
                                     return null;
                                 }
-                                if (msgItem[1] == "int" || msgItem[1] == "float" || msgItem[1] == "string")
+                                if (msgItem[1] == "int" || msgItem[1] == "float" || msgItem[1] == "string" || msgItem[1] == "long")
                                 {
                                     rq.Enqueue("	public " + msgItem[1] + "[] " + msgItem[2] + ";\n	");
                                 }
