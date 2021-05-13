@@ -28,15 +28,20 @@ namespace CJ_CSHARP
         {
             JObject data = JsonConvert.DeserializeObject<JObject>(json);
             //byte[] bf = manager.Json2Buffer(type, json);
-           //foreach (var k in bf) {
-           //
-           //    Console.Write(k + ",");
-           //}
-           //
-           //
-            byte[] bf2 = new byte[] { 0, 10, 66, 97, 103, 80, 117, 108, 108, 82, 101, 116, 0, 20, 0, 7, 0, 6, 0, 0, 0, 1, 0, 6, 1, 233, 3, 0, 0, 0, 4, 1, 185, 11, 0, 4, 0, 1, 1, 234, 3, 0, 1, 0, 3, 1, 186, 11, 0, 5, 0, 3, 1, 210, 7, 0, 3, 0, 2, 1, 209, 7, 0, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 214, 239, 155, 96, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111, 0, 11, 66, 97, 103, 71, 114, 105, 100, 73, 110, 102, 111 };
-            string[] vals = manager.Buffer2Json(bf2);
-            Console.WriteLine(vals[0] + ":" + vals[1] + ":" + (vals[0] == json));
+            //foreach (var k in bf) {
+            //
+            //    Console.Write(k + ",");
+            //}
+            //
+            //
+
+            int[] bf2 = new int[] { 0, 5, 84, 101, 115, 116, 53, 0, 1, 0, 0, 0, 3, 0, 9, 0, 3, 0, 5, 84, 101, 115, 116, 52, 0, 5, 84, 101, 115, 116, 52, 0, 5, 84, 101, 115, 116, 52, 5, 20, -126, 1, 112, -83, 1, -52, -40, 2, -28, -18, 4, 2, -48, 121, 6, 2, -68, 4, 8, 2, -12, 21, 5, 2, -32, -96, 6, 2, -52, 43 ,8};
+            byte[] bf3 = new byte[bf2.Length];
+            for (int i = 0; i < bf2.Length; i++) {
+                bf3[i] = (byte)bf2[i];
+            }
+            string[] vals = manager.Buffer2Json(bf3);
+        
         }
         static void Main(string[] args)
         {
@@ -66,11 +71,11 @@ namespace CJ_CSHARP
                 //0,0,0,2,0,0,0,3,0,0,1,55,37,0,3,0,2,120,109,0,2,120,119,0,2,115,115
                 //0,0,0,2,0,0,0,3,0,0,1,55,37,0,3,0,2,120,109,0,2,120,119,0,2,115,115
                 //注意文件路径 可能直接运行不通过
-               StreamReader sr = new StreamReader("F:\\C#Proj\\LCJ\\CompressJson\\test.txt");
+               StreamReader sr = new StreamReader("test.txt");
                MsgManager manager = new MsgManager();
                manager.process(sr.ReadToEnd());
-                test(manager, "Test3", "{\"id\":123,\"grid_id\":[3,4,5,6,7,8]}");
-                test(manager, "Test4", "{\"x\":33.3,\"y\":44.4,\"z\":55.5}");
+                //test(manager, "Test3", "{\"id\":123,\"grid_id\":[3,4,5,6,7,8]}");
+                test(manager, "Test4", "{\"x\":-33.3,\"y\":44.4,\"z\":55.5}");
                 test(manager, "Test5", "{\"pos_arr\":[{\"x\":33.3,\"y\":44.4,\"z\":55.5},{\"x\":313.3,\"y\":424.4,\"z\":535.5},{\"x\":343.3,\"y\":454.4,\"z\":565.5}]}");
                 test(manager, "Test6", "{\"id\":9527,\"pos\":{\"x\":33.3,\"y\":44.4,\"z\":55.5}}");
                 test(manager, "Test7", "{\"id\":3243,\"pos\":{\"x\":3.1,\"y\":4.6,\"z\":9.3},\"pos2\":{\"x\":3.8,\"y\":2.6,\"z\":1.3}}");

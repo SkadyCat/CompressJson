@@ -30,9 +30,26 @@ namespace CJ.Core
             SArr = new List<string>();
             LArr = new List<long>();
         }
+
+        public byte snap(byte v) {
+
+           // if (v >= 128) {
+           //
+           //     return (byte)();
+           // }
+           //
+            return v;
+        }
         public int bytesToInt(byte[] vv)
         {
+            
             int v = 0;
+
+           // for (int i = 1; i < vv.Length; i++) {
+           //
+           //     vv[i] = snap(vv[i]);
+           // }
+
             switch (vv[0])
             {
                 case 0x00:
@@ -51,6 +68,24 @@ namespace CJ.Core
                     v = vv[1] | vv[2] << 8 | vv[3] << 16 | vv[4] << 24;
                     break;
 
+                case 0x04:
+                    v = vv[1];
+                    break;
+                case 0x05:
+                    v = (vv[1] | vv[2] << 8);
+                    break;
+                case 0x06:
+                    v = (vv[1] | vv[2] << 8 | vv[3] << 16);
+                    break;
+                case 0x07:
+                    v = (vv[1] | vv[2] << 8 | vv[3] << 16 | vv[4] << 24);
+                    break;
+
+
+            }
+            if (vv[0] >= 4) {
+
+                return -v;
             }
             return v;
         }
@@ -137,6 +172,8 @@ namespace CJ.Core
         }
         public byte[] int2bytes(int v)
         {
+            int flag = v;
+            v = Math.Abs(v);
             byte[] bytes = new byte[4];
             bytes[3] = (byte)(v >> 24);
             bytes[2] = (byte)(v >> 16);
@@ -145,19 +182,46 @@ namespace CJ.Core
             List<byte> aim = new List<byte>();
             if (v < 256)
             {
-                aim.Add(0x00);
+                if (flag < 0)
+                {
+                    aim.Add(0x04);
+                }
+                else { 
+                    aim.Add(0x00);
+                }
             }
             if (v >= 256 && v < 65536)
             {
-                aim.Add(0x01);
+                if (flag < 0)
+                {
+                    aim.Add(0x05);
+                }
+                else
+                {
+                    aim.Add(0x01);
+                }
             }
             if (v >= 65536 && v < (256 * 256 * 256))
             {
-                aim.Add(0x02);
+                if (flag < 0)
+                {
+                    aim.Add(0x06);
+                }
+                else
+                {
+                    aim.Add(0x02);
+                }
             }
             if (v >= (256 * 256 * 256))
             {
-                aim.Add(0x03);
+                if (flag < 0)
+                {
+                    aim.Add(0x07);
+                }
+                else
+                {
+                    aim.Add(0x03);
+                }
             }
             switch (aim[0])
             {
@@ -182,6 +246,29 @@ namespace CJ.Core
                     aim.Add(bytes[2]);
                     aim.Add(bytes[3]);
                     break;
+
+                case 0x04:
+                    aim.Add(bytes[0]);
+                    break;
+
+                case 0x05:
+                    aim.Add(bytes[0]);
+                    aim.Add(bytes[1]);
+                    break;
+
+                case 0x06:
+                    aim.Add(bytes[0]);
+                    aim.Add(bytes[1]);
+                    aim.Add(bytes[2]);
+                    break;
+
+                case 0x07:
+                    aim.Add(bytes[0]);
+                    aim.Add(bytes[1]);
+                    aim.Add(bytes[2]);
+                    aim.Add(bytes[3]);
+                    break;
+
             }
             return aim.ToArray();
         }
@@ -226,7 +313,13 @@ namespace CJ.Core
             return lb.ToArray();
         }
 
+        public int clamp(int v) {
 
+            if (v >= 4) {
+                return v - 4;
+            }
+            return v;
+        }
         public byte[] toBuffer()
         {
             Queue<byte> q = new Queue<byte>();
@@ -286,7 +379,8 @@ namespace CJ.Core
         {
             List<byte> tp = new List<byte>();
             tp.Add(q.Dequeue());
-            for (int i = 0; i < tp[0]+1; i++)
+            int len = clamp(tp[0]);
+            for (int i = 0; i < len + 1; i++)
             {
                 tp.Add(q.Dequeue());
             }
@@ -373,8 +467,9 @@ namespace CJ.Core
             }
             for (int i = 0; i < farrLen; i++)
             {
-                byte[] v = extractFromQueue3(q);
-                FArr.Add(byteToFloat(v));
+                byte[] v = extractFromQueue(q);
+                float v1 = byteToFloat(v);
+                FArr.Add(v1);
             }
             return this;
         }
@@ -382,12 +477,18 @@ namespace CJ.Core
 
         float byteToFloat(byte[] data)
         {
-            return BitConverter.ToSingle(data, 0);
+
+            int v = bytesToInt(data);
+
+
+            return (float)v/1000f;
         }
 
         byte[] float2Byte(float v)
         {
-            return BitConverter.GetBytes(v);
+            int vs =(int)(v * 1000f);
+            byte[] buf = int2bytes(vs);
+            return buf;
         }
         void clear()
         {
