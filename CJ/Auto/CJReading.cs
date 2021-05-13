@@ -11,11 +11,18 @@ using System.Threading.Tasks;
 
 namespace CJ.Auto
 {
+   public class CJProcessItem{
+
+       public JObject jo;
+        public string head;
+    }
    public class CJReading
     {
         public static Dictionary<string, Type> maps;
         public static Dictionary<string, Type> controllerMaps;
+        public static Queue<CJProcessItem> jQ;
         public static void init() {
+            jQ = new Queue<CJProcessItem>();
             maps = new Dictionary<string, Type>();
             controllerMaps = new Dictionary<string, Type>();
             List<Type> list = ReflectionTool.reflectionByList(typeof(IMsg));
@@ -33,17 +40,28 @@ namespace CJ.Auto
             string jd = json[0];
             string head = json[1];
             JObject jo = JsonConvert.DeserializeObject<JObject>(jd);
-            Type type = maps[head+"Model"];
+            CJProcessItem item = new CJProcessItem();
+            item.jo = jo;
+            item.head = head;
+            jQ.Enqueue(item);
+        }
+
+        public static void process()
+        {
+            CJProcessItem jj = jQ.Dequeue();
+            string head = jj.head;
+            JObject jo = jj.jo;
+            Type type = maps[head + "Model"];
             object o = Activator.CreateInstance(type);
             MethodInfo method = type.GetMethod("parseJson", BindingFlags.Instance | BindingFlags.Public);
             method = method.MakeGenericMethod(type);
-            object d2 = method.Invoke(o,new object[] {jo});
+            object d2 = method.Invoke(o, new object[] { jo });
             type = controllerMaps[head + "Controller"];
             o = Activator.CreateInstance(type);
             method = type.GetMethod("setData", BindingFlags.Instance | BindingFlags.Public);
             method.Invoke(o, new object[] { d2 });
             method = type.GetMethod("doing", BindingFlags.Instance | BindingFlags.Public);
-            method.Invoke(o,null);
+            method.Invoke(o, null);
         }
     }
 }
