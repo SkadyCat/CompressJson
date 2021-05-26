@@ -1,92 +1,19 @@
-message BagCode
-	int BAG_SUCCESS
-    int BAG_FAIL
+message PutOnRequest
+    string name
+    int equip_id
 end
 
-message BagGridInfo
-    int item_id
-    int grid_id
-    int grid_num
-    long cd
+message EquipmentInfo
+    string grid_name
+    int equip_id
 end
 
-message BagPullRequest
-	int id
-end    
-
-message BagPullRet
-    int code
-	repeated BagGridInfo grid_info_list
-    long open_timestamp
-end
-message BagDragRequest
-    int origin_id
-    int dst_id
+message UnfixReuquest
+    string grid_name
+    int equip_id
 end
 
-message BagDragRet
-    int code
-    BagGridInfo origin
-    BagGridInfo dst
-end
-message BagPackUpRequest
-    repeated int from
-    repeated int to
-end
-
-message BagPackUpRet
-    int code
-    repeated BagGridInfo to
-end
-message BagUseRequest
-    int origin_id
-end
-message BagUseRet
-    int code
-    repeated BagGridInfo origin
-end
-message BagAddRequest
-    int origin_id 
-    int item_id
-    int num
-end
-
-
-message BagAddRet
-    int code
-    repeated BagGridInfo origin
-end
-
-message BagDiscardRequest
-    int origin_id
-end
-
-
-message BagDiscardRet
-    int code
-    BagGridInfo origin
-end
-
-message BagSplitRequest
-    int origin_id
-    int origin_num
-    int dst_id
-    int dst_num 
-end
-
-
-message BagSplitRet
-    int code
-    BagGridInfo origin
-    BagGridInfo dst
-end
-
-message BagExtendRequest
-    int character_id
-    int extend_num
-end
-
-message BagExtendRet
-    int code
-    int extend_num
+message EquipmentPullRet
+    int id
+    repeated EquipmentInfo list
 end

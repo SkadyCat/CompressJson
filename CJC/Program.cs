@@ -27,7 +27,7 @@ namespace CJ_CSHARP
         static void test(MsgManager manager, string type, string json)
         {
             JObject data = JsonConvert.DeserializeObject<JObject>(json);
-            //byte[] bf = manager.Json2Buffer(type, json);
+            byte[] bf = manager.Json2Buffer(type, json);
             //foreach (var k in bf) {
             //
             //    Console.Write(k + ",");
@@ -35,13 +35,13 @@ namespace CJ_CSHARP
             //
             //
 
-            int[] bf2 = new int[] { 0, 5, 84, 101, 115, 116, 53, 0, 1, 0, 0, 0, 3, 0, 9, 0, 3, 0, 5, 84, 101, 115, 116, 52, 0, 5, 84, 101, 115, 116, 52, 0, 5, 84, 101, 115, 116, 52, 5, 20, -126, 1, 112, -83, 1, -52, -40, 2, -28, -18, 4, 2, -48, 121, 6, 2, -68, 4, 8, 2, -12, 21, 5, 2, -32, -96, 6, 2, -52, 43 ,8};
+            int[] bf2 = new int[] { 0, 11, 80, 97, 116, 104, 84, 101, 115, 116, 82, 101, 116, 0, 1, 0, 0, 0, 2, 0, 6, 0, 2, 0, 4, 86, 101, 99, 51, 0, 4, 86, 101, 99, 51, 1, 90, 40, 1, 48, 12, 2, 108, 226, 1, 1, 90, 40, 1, 48, 12, 2, 108, 226, 1 };
             byte[] bf3 = new byte[bf2.Length];
             for (int i = 0; i < bf2.Length; i++) {
                 bf3[i] = (byte)bf2[i];
             }
-            string[] vals = manager.Buffer2Json(bf3);
-        
+            string[] vals = manager.Buffer2Json(bf);
+            Console.WriteLine(vals[0]);
         }
         static void Main(string[] args)
         {
@@ -71,11 +71,11 @@ namespace CJ_CSHARP
                 //0,0,0,2,0,0,0,3,0,0,1,55,37,0,3,0,2,120,109,0,2,120,119,0,2,115,115
                 //0,0,0,2,0,0,0,3,0,0,1,55,37,0,3,0,2,120,109,0,2,120,119,0,2,115,115
                 //注意文件路径 可能直接运行不通过
-               StreamReader sr = new StreamReader("test.txt");
+               StreamReader sr = new StreamReader("F:\\C#Proj\\LCJ\\CompressJson\\test.txt");
                MsgManager manager = new MsgManager();
                manager.process(sr.ReadToEnd());
                 //test(manager, "Test3", "{\"id\":123,\"grid_id\":[3,4,5,6,7,8]}");
-                test(manager, "Test4", "{\"x\":-33.3,\"y\":44.4,\"z\":55.5}");
+                test(manager, "EquipmentPullRet", "{\"list\":[{\"grid_name\":\"cloth\",\"equip_id\":-1},{\"grid_name\":\"shoe\",\"equip_id\":-1},{\"grid_name\":\"pant\",\"equip_id\":-1},{\"grid_name\":\"hat\",\"equip_id\":-1},{\"grid_name\":\"weapon\",\"equip_id\":1001},{\"grid_name\":\"necklace\",\"equip_id\":-1},{\"grid_name\":\"ring\",\"equip_id\":-1}],\"id\":0}");
                 test(manager, "Test5", "{\"pos_arr\":[{\"x\":33.3,\"y\":44.4,\"z\":55.5},{\"x\":313.3,\"y\":424.4,\"z\":535.5},{\"x\":343.3,\"y\":454.4,\"z\":565.5}]}");
                 test(manager, "Test6", "{\"id\":9527,\"pos\":{\"x\":33.3,\"y\":44.4,\"z\":55.5}}");
                 test(manager, "Test7", "{\"id\":3243,\"pos\":{\"x\":3.1,\"y\":4.6,\"z\":9.3},\"pos2\":{\"x\":3.8,\"y\":2.6,\"z\":1.3}}");

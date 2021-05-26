@@ -290,10 +290,23 @@ namespace CJ.Core
             posMap.Add("long", -1);
             Queue<DynamicNode> dq = new Queue<DynamicNode>();
 
-
-			while (dd != null)
+            bool addHead = false;
+            while (dd != null)
 			{
-				DynamicNode dn = new DynamicNode();
+                if (dd.key == "head")
+                {
+                    if (!addHead)
+                    {
+                        addHead = true;
+                    }
+                    else
+                    {
+                        dd = dd.next;
+                        continue;
+                    }
+                }
+
+                DynamicNode dn = new DynamicNode();
 				dn.type = dd.type;
 				if (dn.type == "int")
 				{
@@ -307,6 +320,8 @@ namespace CJ.Core
 				}
 				if (dn.type == "string")
 				{
+
+                    
 					posMap[dn.type]++;
 					dn.sval = (string)dd.getVal();
 				}

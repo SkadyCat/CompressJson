@@ -46,11 +46,13 @@ namespace CJ.Auto
             jQ.Enqueue(item);
         }
 
-        public static void process()
+        public static string process()
         {
             CJProcessItem jj = jQ.Dequeue();
             string head = jj.head;
             JObject jo = jj.jo;
+
+            
             Type type = maps[head + "Model"];
             object o = Activator.CreateInstance(type);
             MethodInfo method = type.GetMethod("parseJson", BindingFlags.Instance | BindingFlags.Public);
@@ -62,6 +64,8 @@ namespace CJ.Auto
             method.Invoke(o, new object[] { d2 });
             method = type.GetMethod("doing", BindingFlags.Instance | BindingFlags.Public);
             method.Invoke(o, null);
+
+            return jo.ToString();
         }
     }
 }
