@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+F:/C#Proj/LCJ/CompressJson/C++Version/CMakeLists.txt
+F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/3.19.2/CMakeCCompiler.cmake
+F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake
+F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/3.19.2/CMakeRCCompiler.cmake
+F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/3.19.2/CMakeSystem.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeCInformation.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeCXXInformation.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeCommonLanguageInclude.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeGenericSystem.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeInitializeConfigs.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeLanguageInformation.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeRCInformation.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeSystemSpecificInformation.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/CMakeSystemSpecificInitialize.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Compiler/MSVC-C.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Compiler/MSVC-CXX.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Platform/Windows-MSVC-C.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Platform/Windows-MSVC-CXX.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Platform/Windows-MSVC.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Platform/Windows.cmake
+F:/download/cmake-3.19.2-win64-x64/share/cmake-3.19/Modules/Platform/WindowsPaths.cmake

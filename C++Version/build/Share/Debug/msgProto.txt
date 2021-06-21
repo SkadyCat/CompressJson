@@ -1,0 +1,19 @@
+message PutOnRequest
+    string name
+    int equip_id
+end
+
+message EquipmentInfo
+    string grid_name
+    int equip_id
+end
+
+message UnfixReuquest
+    string grid_name
+    int equip_id
+end
+
+message EquipmentPullRet
+    int id
+    repeated EquipmentInfo list
+end

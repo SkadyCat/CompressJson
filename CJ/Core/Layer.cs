@@ -117,42 +117,42 @@ namespace CJ.Core
             List<byte> aim = new List<byte>();
             if (v < Math.Pow(256, 1))
             {
-                aim.Add(0x00);
+                aim.Add(0x02);
             }
             if (v >= Math.Pow(256, 1) && v < Math.Pow(256, 2))
             {
-                aim.Add(0x01);
+                aim.Add(0x03);
 
             }
             if (v >= Math.Pow(256, 2) && v < Math.Pow(256, 3))
             {
-                aim.Add(0x02);
+                aim.Add(0x04);
             }
             if (v >= Math.Pow(256, 3) && v < Math.Pow(256, 4))
             {
-                aim.Add(0x03);
+                aim.Add(0x05);
 
             }
             if (v >= Math.Pow(256, 4) && v < Math.Pow(256, 5))
             {
 
-                aim.Add(0x04);
+                aim.Add(0x06);
             }
             if (v >= Math.Pow(256, 5) && v < Math.Pow(256, 6))
             {
 
-                aim.Add(0x05);
+                aim.Add(0x07);
             }
             if (v >= Math.Pow(256, 6) && v < Math.Pow(256, 7))
             {
 
-                aim.Add(0x06);
+                aim.Add(0x08);
             }
             if (v >= Math.Pow(256, 7))
             {
-                aim.Add(0x07);
+                aim.Add(0x09);
             }
-            for (int i = 0; i < aim[0] + 1; i++)
+            for (int i = 0; i < aim[0]; i++)
             {
                 aim.Add(bytes[i]);
             }
@@ -163,7 +163,7 @@ namespace CJ.Core
         {
             int len = buf[0];
             long v = 0;
-            for (int i = 1; i <= len + 1; i++)
+            for (int i = 1; i <len; i++)
             {
                 long a = buf[i];
                 v = v | (a << (8 * (i - 1)));
@@ -343,6 +343,7 @@ namespace CJ.Core
 
             for (int i = 0; i < LArr.Count; i++)
             {
+                
                 foreach (byte k in long2bytes(LArr[i]))
                 {
                     larrbytes.Add(k);
@@ -386,7 +387,16 @@ namespace CJ.Core
             }
             return tp.ToArray();
         }
-
+        byte[] extractLongFromQueue(Queue<byte> q) {
+            List<byte> tp = new List<byte>();
+            tp.Add(q.Dequeue());
+            int len = tp[0];
+            for (int i = 0; i < len; i++)
+            {
+                tp.Add(q.Dequeue());
+            }
+            return tp.ToArray();
+        }
         byte[] extractFromQueue2(Queue<byte> q)
         {
             List<byte> tp = new List<byte>();
@@ -456,7 +466,8 @@ namespace CJ.Core
             }
             for (int i = 0; i < larrLen; i++)
             {
-                long v = bytes2long(extractFromQueue(q));
+                byte[] buf = extractLongFromQueue(q);
+                long v = bytes2long(buf);
                 LArr.Add(v);
             }
             for (int i = 0; i < sarrLen; i++)

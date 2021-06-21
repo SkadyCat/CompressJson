@@ -15,7 +15,6 @@ namespace CJ.Auto
         }
         public void doing()
         {
-            Console.WriteLine("accoutn: "+model.account);
         }
 
     }

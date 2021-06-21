@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\Msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\json11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\json11.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\C#Proj\LCJ\CompressJson\C++Version\Msg\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F98433DF-5DB8-377B-8A0E-323C75D73BF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E4929F6D-5D0A-3990-B73E-AD69529D9A3C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

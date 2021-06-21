@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\UnityProj\MagicWorld\MagicWorld\Assets\CJ\Plugins\</OutputPath>
+    <OutputPath>..\..\..\..\UnityProj\MPWorld\Assets\CJ\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

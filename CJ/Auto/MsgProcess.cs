@@ -13,7 +13,6 @@ namespace CJ.Auto
 
         public void Test<T>(T t)
         {
-            Console.WriteLine(t);
         }
 
         public void process(Type t,object[] data)

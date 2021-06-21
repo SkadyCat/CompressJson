@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0F76C4DD-A895-3C4A-8809-0F7CC82B3ECE}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>luac</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">luac.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">luac</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">luac.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">luac</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/C#Proj/LCJ/CompressJson/C++Version/build/lib/Debug/luac.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/C#Proj/LCJ/CompressJson/C++Version/build/bin/Debug/luac.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/C#Proj/LCJ/CompressJson/C++Version/build/lib/Release/luac.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/C#Proj/LCJ/CompressJson/C++Version/build/bin/Release/luac.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/C#Proj/LCJ/CompressJson/C++Version/Lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+F:\download\cmake-3.19.2-win64-x64\bin\cmake.exe "-SF:/C#Proj/LCJ/CompressJson/C++Version" "-BF:/C#Proj/LCJ/CompressJson/C++Version/build" --check-stamp-file "F:/C#Proj/LCJ/CompressJson/C++Version/build/Lua/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\Lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/C#Proj/LCJ/CompressJson/C++Version/Lua/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+F:\download\cmake-3.19.2-win64-x64\bin\cmake.exe "-SF:/C#Proj/LCJ/CompressJson/C++Version" "-BF:/C#Proj/LCJ/CompressJson/C++Version/build" --check-stamp-file "F:/C#Proj/LCJ/CompressJson/C++Version/build/Lua/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\Lua\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lapi.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lcode.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lctype.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldebug.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldo.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldump.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lfunc.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lgc.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\llex.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lmem.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lobject.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lopcodes.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lparser.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lstate.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lstring.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ltable.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ltm.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lundump.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lvm.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lzio.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lauxlib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lbaselib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lcorolib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldblib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\liolib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lmathlib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\loadlib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\loslib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lstrlib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ltablib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lutf8lib.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\linit.c" />
+    <ClCompile Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\luac.c" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lua.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\luaconf.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lualib.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lauxlib.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lua.hpp" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lapi.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldo.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lmem.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lstate.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lfunc.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lobject.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lstring.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lcode.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lgc.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lopcodes.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ltable.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lundump.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lctype.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\llex.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lparser.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ltm.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lvm.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\ldebug.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\llimits.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lprefix.h" />
+    <ClInclude Include="F:\C#Proj\LCJ\CompressJson\C++Version\Lua\src\lzio.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\ZERO_CHECK.vcxproj">
+      <Project>{DDBF3084-D8B1-36A5-BBDD-0DEE827A227C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

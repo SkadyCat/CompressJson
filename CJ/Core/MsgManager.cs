@@ -73,7 +73,6 @@ namespace CJ.Core
 				{
 					continue;
 				}
-				Console.WriteLine(k);
 				if (contains(k, "message"))
 				{
 					isOpen = true;

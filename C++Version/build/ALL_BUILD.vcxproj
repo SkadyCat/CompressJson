@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{25E41A71-0AAB-3C08-B4ED-4A8EDCA7B311}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\C#Proj\LCJ\CompressJson\C++Version\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/C#Proj/LCJ/CompressJson/C++Version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+F:\download\cmake-3.19.2-win64-x64\bin\cmake.exe "-SF:/C#Proj/LCJ/CompressJson/C++Version" "-BF:/C#Proj/LCJ/CompressJson/C++Version/build" --check-stamp-file "F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeCCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeCXXCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeRCCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeSystem.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeRCInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/C#Proj/LCJ/CompressJson/C++Version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+F:\download\cmake-3.19.2-win64-x64\bin\cmake.exe "-SF:/C#Proj/LCJ/CompressJson/C++Version" "-BF:/C#Proj/LCJ/CompressJson/C++Version/build" --check-stamp-file "F:/C#Proj/LCJ/CompressJson/C++Version/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeCCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeCXXCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeRCCompiler.cmake;F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\3.19.2\CMakeSystem.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeRCInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\Windows.cmake;F:\download\cmake-3.19.2-win64-x64\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\C#Proj\LCJ\CompressJson\C++Version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\ZERO_CHECK.vcxproj">
+      <Project>{DDBF3084-D8B1-36A5-BBDD-0DEE827A227C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\Msg\Msg.vcxproj">
+      <Project>{12D45B80-7E2A-3AA1-830D-7FF64D209F73}</Project>
+      <Name>Msg</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\Lua\lua.vcxproj">
+      <Project>{8FD7CFFD-DD73-34AD-BA05-F473CE9D9DED}</Project>
+      <Name>lua</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\Lua\luac.vcxproj">
+      <Project>{0F76C4DD-A895-3C4A-8809-0F7CC82B3ECE}</Project>
+      <Name>luac</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\C#Proj\LCJ\CompressJson\C++Version\build\Lua\luacli.vcxproj">
+      <Project>{22C21579-EE92-3C8A-A42A-03FB6D31A993}</Project>
+      <Name>luacli</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

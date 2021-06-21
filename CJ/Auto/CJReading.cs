@@ -51,8 +51,6 @@ namespace CJ.Auto
             CJProcessItem jj = jQ.Dequeue();
             string head = jj.head;
             JObject jo = jj.jo;
-
-            
             Type type = maps[head + "Model"];
             object o = Activator.CreateInstance(type);
             MethodInfo method = type.GetMethod("parseJson", BindingFlags.Instance | BindingFlags.Public);

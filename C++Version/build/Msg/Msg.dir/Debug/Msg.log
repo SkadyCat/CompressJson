@@ -1,0 +1,37 @@
+﻿  Msg.cpp
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(319): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(327): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(337): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(346): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(422): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(485): warning C4101: “v”: 未引用的局部变量
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(584): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(596): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(602): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(608): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\../Msg/MsgEntity.h(614): warning C4018: “<”: 有符号/无符号不匹配
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\Msg.cpp(37): warning C4101: “data”: 未引用的局部变量
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\Msg.cpp(65): warning C4018: “<”: 有符号/无符号不匹配
+  MsgManager.cpp
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(319): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(327): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(337): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(346): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(422): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(485): warning C4101: “v”: 未引用的局部变量
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(584): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(596): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(602): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(608): warning C4018: “<”: 有符号/无符号不匹配
+f:\c#proj\lcj\compressjson\c++version\msg\MsgEntity.h(614): warning C4018: “<”: 有符号/无符号不匹配
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp(193): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp(199): warning C4244: “参数”: 从“double”转换到“const T”，可能丢失数据
+          with
+          [
+              T=int64_t
+          ]
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp(187): warning C4101: “fnum”: 未引用的局部变量
+F:\C#Proj\LCJ\CompressJson\C++Version\Msg\MsgManager.cpp(186): warning C4101: “num”: 未引用的局部变量
+  正在生成代码...
+  Msg.vcxproj -> F:\C#Proj\LCJ\CompressJson\C++Version\build\Share\Debug\Msg.dll

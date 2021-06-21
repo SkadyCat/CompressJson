@@ -1,19 +1,35 @@
-message PutOnRequest
-    string name
-    int equip_id
-end
-
-message EquipmentInfo
-    string grid_name
-    int equip_id
-end
-
-message UnfixReuquest
-    string grid_name
-    int equip_id
-end
-
-message EquipmentPullRet
+message Test1
+    float x
     int id
-    repeated EquipmentInfo list
+    long times
+    string name
 end
+
+message Test2
+    repeated long times
+end
+message Test3
+    int id
+    repeated string names
+end
+
+message Test4
+    string name
+    repeated int codes
+end
+
+message Vec3
+    float x
+    float y
+    float z
+    long cd
+    string name
+    int id
+end
+
+message Test5
+    repeated Vec3 list
+end
+
+
+

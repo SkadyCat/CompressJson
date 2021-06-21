@@ -15,7 +15,6 @@ public class LoginRetController : IController
     public void doing()
     {
 
-        Console.WriteLine(model.info);
     }
 
 }
