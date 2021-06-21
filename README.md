@@ -4,9 +4,9 @@ its a json compress proto
 
 ## 压缩JSON协议[v1.0 版本]
 ### 优点
-  1. 比json更小的数据量
+  1. 极致压缩，众享丝滑
   2. 内核很小，可以嵌入到任意c#，c++应用
-  3. 自动化脚本，一键MVC
+  3. 为支持Unity提供自动化MVC框架插件
   4. 同时支持c++(cmake)支持windows平台和linux平台，c# 支持unity(移动平台和Windows平台)
  
 ## Unity自动化通信demo教程
@@ -113,8 +113,7 @@ local buf = msg.Json2Buffer(processer,"PutOnRequest",j1)
 local jv = msg.Buffer2Json(processer,buf)
 ```
 测试结果
-![image](https://user-images.githubusercontent.com/42512280/122763382-d8f69000-d2d0-11eb-890f-eea891bd68aa.png)
-
+![image](https://user-images.githubusercontent.com/42512280/122783453-292b1d80-d2e4-11eb-83f9-e96b9ab07220.png)
 序列化出来的buffer可以直接在c#和c++之间相互通信
 
 
@@ -163,5 +162,3 @@ test(manager, "Test14", "{\"a1\":{\"l1\":3333333333333333,\"l2\":444444444444444
 ## 处理器
 ![image](https://user-images.githubusercontent.com/42512280/117948599-dbfe7800-b343-11eb-8c6a-b1d0f5e90738.png)
 
-
-## 下个版本将会对序列化和反序列化的时间进行优化
